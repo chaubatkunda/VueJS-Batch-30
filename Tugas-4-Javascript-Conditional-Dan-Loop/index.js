@@ -36,11 +36,11 @@ switch(tanggal) {
 // Output untuk n=3 :
 
 // * Jawaban No 3
-var inp = '';
 var n = 5;
-for(let a = 1; a <= n; a++) {
+var inp = '';
+for(var a = 1; a <= n; a++) {
     for (let b = 1; b <= a; b++){
-        inp += '*';
+        inp += '#';
     }
     inp += '\n';
 }
@@ -53,6 +53,28 @@ console.log(inp);
 
 //* Jawaban No 4
 
-// var input = 5;
+var m = 8;
+
+for (var i = 1; i <= m; i++) {
+    a = i % 3
+
+    switch (a) {
+        case 1:
+            console.log(i + ' - I Love Programming')
+            break;
+        case 2:
+            console.log(i + ' - I Love Javasript')
+            break
+        default:
+            console.log(i + ' - I Love VueJs')
+            var sama = ""
+            for (let k = 0; k < i; k++) {
+                sama = sama + "="
+                console.log(sama)
+            }
+            break;
+    }
+    
+}
 
 
