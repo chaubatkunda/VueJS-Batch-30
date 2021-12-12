@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 8 Pengenalan VueJS</title>
+</head>
+
+<body>
+    <div id="app">
+       <div>
+           <div>
+               <input type="text" v-model="bookSearch">
+           </div>
+           <ul v-for="book in resultQuery" :key="book.id">
+               <li>{{ book.name }}</li>
+           </ul>
+       </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    bookSearch: null,
+                    resources: [
+                        {
+                            id: 1,
+                            name: 'Kalkulus Dasar'
+                        },
+                        {
+                            id: 2,
+                            name: 'Fisika Dasar'
+                        },
+                        {
+                            id: 3,
+                            name: 'Aljabar Linear Elementer'
+                        },
+                        {
+                            id: 4,
+                            name: 'Aljabar Abstrak'
+                        },
+                        {
+                            id: 5,
+                            name: 'Algoritma Pemograman'
+                        }
+                    ]
+                }
+            },
+            computed:{
+                resultQuery(){
+                    if(this.bookSearch){
+                        return this.resources.filter(item => {
+                            return this.bookSearch
+                            .toLowerCase()
+                            .split()
+                            .every(v => item.name.toLowerCase().includes(v))
+                        });
+                    }else{
+                        return this.resources;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
